@@ -1,0 +1,22 @@
+.describe {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+  /* justify-content: space-between; */
+}
+
+.buttotsContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.button {
+  padding: 8px;
+  height: 60px;
+  background-color: rgb(242, 144, 127);
+}
+
+.buttonReturn {
+  padding: 8px;
+  height: 60px;
+  background-color: rgb(96, 205, 105);
+}

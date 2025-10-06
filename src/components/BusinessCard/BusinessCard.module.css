@@ -1,0 +1,41 @@
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  width: 100%;
+  max-width: 320px;
+
+  padding: 20px;
+  margin: 16px;
+
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: default;
+}
+
+.cardContainer:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.cardContainer h3 {
+  font-size: 1.2rem;
+  color: #2d2d2d;
+  margin-bottom: 8px;
+}
+
+.cardContainer p {
+  font-size: 0.95rem;
+  color: #555;
+  margin: 4px 0;
+}
+
+.cardContainer button {
+  align-self: center;
+  margin-top: 12px;
+}
