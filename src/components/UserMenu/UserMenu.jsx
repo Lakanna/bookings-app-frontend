@@ -9,6 +9,7 @@ export const UserMenu = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  if (!user) return "";
 
   return (
     <div className={css.wrapper}>

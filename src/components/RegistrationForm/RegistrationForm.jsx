@@ -31,8 +31,7 @@ export const RegistrationForm = () => {
   const nameFieldId = useId();
   const emailFieldId = useId();
   const passwordFieldId = useId();
-  const roleId = useId();
-  const businessId = useId();
+
   const phoneId = useId();
   const descriptionId = useId();
 
@@ -90,27 +89,27 @@ export const RegistrationForm = () => {
             component="p"
           />
 
-          <label htmlFor={roleId} className={css.label}>
-            Client
-          </label>
-          <Field
-            type="radio"
-            name="role"
-            value="client"
-            className={css.input}
-            id={roleId}
-          />
+          <div className={css.radioBox}>
+            <label className={css.option}>
+              <span className={css.radioName}>Client</span>
+              <Field
+                type="radio"
+                name="role"
+                value="client"
+                className={css.input}
+              />
+            </label>
 
-          <label htmlFor={businessId} className={css.label}>
-            Business
-          </label>
-          <Field
-            type="radio"
-            name="role"
-            value="business"
-            className={css.input}
-            id={businessId}
-          />
+            <label className={css.option}>
+              <span className={css.radioName}>Business</span>
+              <Field
+                type="radio"
+                name="role"
+                value="business"
+                className={css.input}
+              />
+            </label>
+          </div>
 
           {values.role === "business" && (
             <div className={css.businessFields}>

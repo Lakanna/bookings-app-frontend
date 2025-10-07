@@ -8,11 +8,13 @@ import {
   Button,
   TextField,
 } from "@mui/material";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { editBooking } from "../../redux/bookings/operations.js";
+import { selectUser } from "../../redux/auth/selectors.js";
 
 export const BookingEditForm = ({ booking, isOpen, onClose }) => {
   const dispatch = useDispatch();
+  const user = useSelector(selectUser);
 
   const validationSchema = Yup.object({
     startAt: Yup.date()
@@ -56,30 +58,34 @@ export const BookingEditForm = ({ booking, isOpen, onClose }) => {
       <DialogTitle>Edit Booking</DialogTitle>
       <form onSubmit={formik.handleSubmit}>
         <DialogContent>
-          <TextField
-            label="Start Time"
-            type="datetime-local"
-            fullWidth
-            margin="normal"
-            name="startAt"
-            value={formik.values.startAt}
-            onChange={formik.handleChange}
-            error={formik.touched.startAt && Boolean(formik.errors.startAt)}
-            helperText={formik.touched.startAt && formik.errors.startAt}
-            InputLabelProps={{ shrink: true }}
-          />
-          <TextField
-            label="End Time"
-            type="datetime-local"
-            fullWidth
-            margin="normal"
-            name="endAt"
-            value={formik.values.endAt}
-            onChange={formik.handleChange}
-            error={formik.touched.endAt && Boolean(formik.errors.endAt)}
-            helperText={formik.touched.endAt && formik.errors.endAt}
-            InputLabelProps={{ shrink: true }}
-          />
+          {user.role === "client" && (
+            <>
+              <TextField
+                label="Start Time"
+                type="datetime-local"
+                fullWidth
+                margin="normal"
+                name="startAt"
+                value={formik.values.startAt}
+                onChange={formik.handleChange}
+                error={formik.touched.startAt && Boolean(formik.errors.startAt)}
+                helperText={formik.touched.startAt && formik.errors.startAt}
+                InputLabelProps={{ shrink: true }}
+              />
+              <TextField
+                label="End Time"
+                type="datetime-local"
+                fullWidth
+                margin="normal"
+                name="endAt"
+                value={formik.values.endAt}
+                onChange={formik.handleChange}
+                error={formik.touched.endAt && Boolean(formik.errors.endAt)}
+                helperText={formik.touched.endAt && formik.errors.endAt}
+                InputLabelProps={{ shrink: true }}
+              />
+            </>
+          )}
           <TextField
             label="Notes"
             name="notes"
